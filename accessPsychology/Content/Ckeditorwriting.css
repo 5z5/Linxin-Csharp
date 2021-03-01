@@ -1,0 +1,21 @@
+﻿.ck-content {
+    min-height: 400px;
+}
+
+.inputcss {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 28px;
+    color: thistle;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    color: #555;
+}
+ul,ol{
+    padding-left:40px;
+}

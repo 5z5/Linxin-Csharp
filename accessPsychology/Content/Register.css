@@ -1,0 +1,82 @@
+﻿body {
+}
+
+.wrap-one {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.wrap-two {
+    margin: auto auto;
+    width: 1300px;
+}
+
+.content {
+    width: 350px;
+    margin-left: 950px;
+}
+
+.content > div {
+    height: 60px;
+}
+
+.content input[type^="text"] {
+     height: calc(2.25rem + 2px);
+     padding: 0.375rem 0.75rem;
+     font-size: 1rem;
+     line-height: 1.5;
+     color: #495057;
+     border: 1px solid #ced4da;
+     border-radius: 0.25rem;
+}
+
+.content input[type^="password"] {
+     height: calc(2.25rem + 2px);
+     padding: 0.375rem 0.75rem;
+     font-size: 1rem;
+     line-height: 1.5;
+     color: #495057;
+     border: 1px solid #ced4da;
+     border-radius: 0.25rem;
+}
+
+.self-introduction-area {
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    height: 80px;
+    width: 220px;
+    max-height: 80px;
+}
+
+.sex {
+    height: 30px;
+}
+
+.register {
+    width: 100%;
+}
+
+.uploadFile {
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+    height: 38px;
+}
+
+.field-validation-error {
+    display:inline-block;
+    font-size: 13px;
+    color: red;
+    margin-left: 83px;
+}
+
+
+
+

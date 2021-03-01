@@ -1,0 +1,174 @@
+﻿@{
+    Layout = null;
+}
+@model accessPsychology.Models.RegisterViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.title</title>   
+    <link href="@Url.Content("~/Content/homePage.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/layui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/stroll.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/example.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/respond.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.12.4.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/layui.js")"></script>
+    <script src="@Url.Content("~/Scripts/details.js")"></script>
+    <script src="@Url.Content("~/Scripts/stroll.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/logIn.js")"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.8.3.js")"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <span class="icon">漫画集中营</span>
+            <div class="details">
+                <a class="details-Content" href="/Home/Index">首页</a>
+                <a class="details-Content" href="/Science/Index">科普</a>
+                <a class="details-Content" href="/Blog/Index">博客</a>
+                <a class="details-Content" href="/ImportantNews">要闻</a>
+                <a class="details-Content" href="/QuestionAndAnswer/Index">问答</a>
+                <a class="details-Content" href="/Video/Index">视频</a>
+                <a class="details-Content" href="/FunQuiz/Index">趣味小测试</a>
+            </div>
+            <div class="search">
+                <input class="input" type="text" placeholder="搜索作品、作者名" />
+                <img class="imgSearch" src="~/images/搜索.png" />
+            </div>
+            @if (Session["UserName"] != null)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm",@class="logoutForm"}))
+                {
+                    @Html.AntiForgeryToken();
+                    <div class="userLogin">
+                        <img class="loginCenter" src="@Session["UserPhoto"]" />
+                        <div class="userControl" style="display: none;">
+                            <div class="bord">
+                                <div>
+                                    <i class="glyphicon glyphicon-user"></i><a href="/PersonalCenter/Index/1" target="_blank">个人中心</a>
+                                </div>
+                                <div>
+                                    <i class="glyphicon glyphicon-bookmark"></i><a href="/PersonalCenter/Index/2" target="_blank">我的收藏</a>
+                                </div>
+                            </div>
+                            <div class="bord">
+                                <div>
+                                    <i class="glyphicon glyphicon-list-alt"></i><a href="/PersonalCenter/Index/3" target="_blank">我的博客</a>
+                                </div>
+                                <div>
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                    <a href="/PersonalCenter/Index/4" target="_blank">我的提问</a>
+                                </div>
+                            </div>
+                            <div class="bord">
+                                <div>
+                                    <i class="glyphicon glyphicon-question-sign"></i>
+                                    <a href="" target="_blank">帮助</a>
+                                </div>
+                                <div>
+                                    <i class="glyphicon glyphicon-arrow-right"></i>
+                                    <a href="javascript:document.getElementById('logoutForm').submit()" class="logout">退出</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="loginRegister">
+                    <a class="login" data-backdrop="static" data-toggle="modal" data-target="#loginModal">登录</a>
+                    <span class="stand">|</span>
+                    <a class="register" href="/Account/Register">注册</a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="modal fade log-in-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm" }))
+        {
+            @Html.AntiForgeryToken();
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center">用户登录</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="recipient-name" class="col-form-label col-2 offset-1">用户名:</label>
+                                    @Html.TextBoxFor(m => m.user_name, new { @class = "form-control col-6", placeholder = "请输入用户名", id = "txtusername" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="message-text" class="col-form-label col-2 offset-1">密码:</label>
+                                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control col-6", placeholder = "请输入密码", id = "txtpassword", type = "password" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="message-text" class="col-form-label col-2 offset-1">验证码:</label>
+                                    <input id="txtverifcode" name="txtVerifcode1" class="form-control col-3" placeholder="验证码" type="text" />
+                                    <img id="imgCaptcha" class="col-3" src="~/Handlers/Captcha.ashx" style="vertical-align:middle;" />
+                                    <div class="updateVerify btn btn-primary" onclick="Refresh();">看不清</div>
+                                    <!--刷新验证码-->
+                                    <script type="text/javascript">
+                                        function Refresh() {
+                                            var img = document.getElementById("imgCaptcha");
+                                            img.src = "/Handlers/Captcha.ashx?query=" + Math.random();
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer ">
+                        <a class="btn btn-primary Right logIn" href="javascript:document.getElementById('loginForm').submit()" id="btnlogin">登录</a>
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">退出</button>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+        @RenderBody()
+        <div class="footer">
+            <div class="footer-content">
+                <div class=" footer-attention">
+                    <div>
+                        <a><img src="~/images/微信.png" /></a>
+                        <a><img src="~/images/微博.png" /></a>
+                    </div>
+                </div>
+                <div class="footer-middle">
+                    <div class=" footer-middle-left">
+                        <div class="">临心（深圳）科技有限公司</div>
+                        <div class="">全部信息 临心文章 版权所有 未经允许 严禁转载</div>
+                        <div class="">Copyright @@ 2019 linxinchuanbo.com All Rights Reserved</div>
+                    </div>
+                    <div class="footer-middle-right">
+                        <div class="">
+                            <div class="footer-link" style="float: left;width: 70px;"><a>首页</a></div>
+                            <div class=" footer-link" style="float: left;width: 70px;"><a>APP下载</a></div>
+                            <div class=" footer-link" style="float: left;width: 70px;"><a>关于临心</a></div>
+                            <div class=" footer-link" style="float: left;width: 70px;"><a>加入我们</a></div>
+                            <div class=" footer-link"><a>我要投稿</a></div>
+                        </div>
+                        <div class="">
+                            <div class=" footer-link" style="float: left;width: 70px;"><a>帮助FAQ</a></div>
+                            <div class=" footer-link" style="float: left;width: 70px;"><a>游戏中心</a></div>
+                            <div class="footer-link" style="float: left;width: 70px;"><a>专家审核</a></div>
+                            <div class="footer-link" style="float: left;width: 70px;"><a>用户协议</a></div>
+                            <div class="footer-link" style="float: left;width: 70px;"><a>联系我们</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+

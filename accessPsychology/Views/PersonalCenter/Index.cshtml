@@ -1,0 +1,202 @@
+﻿<link href="~/Content/personalCenter.css" rel="stylesheet" />
+<script src="~/Scripts/personalCenter.js"></script>
+<span class="user_id" style="display:none;">@Session["User_id"]</span>
+<span class="select_nav" style="display:none;">@Session["select_nav"]</span>
+<div class="container" style="position:relative;left: -100%;margin-top:30px;height:600px;">
+    <div class="row">
+        <div class="col-3" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);">
+            <ul class="nav flex-column nav-left">
+                <li class="nav-item nav-item1" name="1">
+                    <a class="nav-link" href="#">个人资料</a>
+                </li>
+                <li class="nav-item nav-item1" name="2">
+                    <a class="nav-link" href="#">我的收藏</a>
+                </li>
+                <li class="nav-item nav-item1" name="3">
+                    <a class="nav-link" href="#">我的博客</a>
+                </li>
+                <li class="nav-item nav-item1" name="4">
+                    <a class="nav-link" href="#">我的提问</a>
+                </li>
+            </ul>
+        </div>
+        <div style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);" class="col-9" name="personalData">
+            <div class="person-title">
+                <h4>个人资料</h4>
+            </div>
+            <div class="row" style="margin: 16px 0;">
+                <div class="col-2">
+                    <img src="" class="head-img" />
+                    <span class="span-img">更换头像</span>
+                    <input class="input-img" type="file" />
+                </div>
+                <div class="col-10" style="font-size: 14px;">
+                    <div class="row" style="border-bottom:1px solid #e9eaeb;padding-bottom: 5px;">
+                        <span>ID:</span><span class="user-id"></span>
+                        <a data-v-0d738edb class="to-person">个人主页</a>
+                    </div>
+                    <div class="row">
+                        <label>昵称：</label><span class="nickname"></span>
+                        <span style="cursor:pointer;" class="change-info" data-toggle="modal" data-target="#modifyInfo">修改资料</span>
+                        <!--为修改资料填充初始信息-->
+                        <script>
+                            $('.change-info').bind('click', function () {
+                                if ($('.sex').text() == "男") {
+                                    $("#boy").attr('checked', '');
+                                } else if ($('.sex').text() == "女") {
+                                    $("#girl").attr('checked', '');
+                                }
+                                $("[name='tel_phone']").val($(".telphone").text());
+                                if ($('user-type').text() == "心理学者") {
+                                    $("[name='nomalUser']").removeAttr('selected', '');
+                                    $("[name='nomalUser']").Attr('selected', '');
+                                }
+                                $("[name='introduce']").val($('.self-introduce').text());
+                            })
+                        </script>
+                        <div aria-hidden="true" data-backdrop="static" class="modal fade" id="modifyInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modifyInfo">修改信息</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @using (Html.BeginForm("ModifyUserInfo", "PersonalCenter", FormMethod.Post, new { id = "ModifyForm", enctype = "multipart/form-data" }))
+                                        {
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <span class="control-label offset-1 col-3" style="text-align:end;/* background-color: white; */line-height: 38px;">昵称:</span><input type="text" class="disabled form-control col-5" readonly="readonly" placeholder="昵称不可修改">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row" style="color:black;">
+                                                <span class="col-3 offset-1" style="text-align: end;">性别:</span>
+                                                <div class="form-check form-check-inline col-1">
+                                                    <label class="form-check-label" id="option1" for="inlineRadio1">男</label>
+                                                    <input class="form-check-input" type="radio" name="sex" id="boy">
+                                                </div>
+                                                <div class="form-check form-check-inline col-1">
+                                                    <label class="form-check-label" for="inlineRadio2">女</label>
+                                                    <input class="form-check-input" type="radio" name="sex" id="girl" value="女">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <span class="control-label col-3 offset-1" style="text-align:end;line-height: 38px;">联系方式:</span><input name="tel_phone" type="text" class="form-control col-5">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row " style="color:black;">
+                                                <label for="inputState" class="offset-1 col-3 col-form-label" style="">身份:</label>
+                                                <div class="form-group ">
+                                                    <select id="inputState" name="user_type" class="form-control">
+                                                        <option name="nomalUser" selected="">普通用户</option>
+                                                        <option name="psyUser">心理学者</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label class="control-label offset-1 col-3" style="text-align:end;/* background-color: white; */line-height: 38px;">个人介绍:</label><textarea name="introduce" type="text" class="form-control col-5"></textarea>
+                                                </div>
+                                            </div>
+                                        }
+                                        <!--修改资料-->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 30%;">关闭</button>
+                                        <a href="javascript:document.getElementById('ModifyForm').submit()" class="btn btn-primary modify">修改</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>性别：</label><span class="sex"></span>
+                    </div>
+                    <div class="row">
+                        <label>联系方式：</label><span class="telphone"></span>
+                    </div>
+                    <div class="row">
+                        <label>用户类型：</label><span class="user-type"></span>
+                    </div>
+                    <div class="row">
+                        <label>个人介绍：</label><span class="self-introduce"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display: none;box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);" class="col-9" name="myFavorite">
+            <div class="title1">
+                <span name="createMyFavorite" style="font-weight: bold;font-size: 16px;">我创建的收藏夹</span>
+                <span class="new-collect"><span class="add">+</span>新建收藏夹</span>
+            </div>
+            <nav class="pageBreak" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div style="display: none;box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);" class="col-9" name="myBlogs">
+            <div class="title2" style="position: relative;">
+                <span style="font-weight: bold;font-size: 16px;">我的博客</span>
+                <a class="write-blog" href="/Writing/Index"><span class="glyphicon glyphicon-pencil"></span>写博客</a>
+            </div>
+            <nav class="pageBreak" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div style="display: none;box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);" class="col-9" name="myQuestion">
+            <div class="title3" style="position: relative;">
+                <span style="font-weight: bold;font-size: 16px;">我的提问</span>
+                <a class="askQuestion"><img style="vertical-align: -7px;width: 32px;height: 32px;" src="~/images/提问.png" />提问</a>
+            </div>
+            <nav class="pageBreak" aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div style="display:none" class="col-9" name="favoriteContent">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@model accessPsychology.Models.SciClass
+@{
+    ViewBag.Title = "sci_article";
+    Layout = "~/Views/Shared/_LayoutArticle.cshtml";
+}
+<link href="~/Content/detail.css" rel="stylesheet" />
+<style>
+    .text{
+        display:none;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            @foreach (var item in Model.sci_Articles)
+            {
+                <h3 class=" text-center">@Html.DisplayFor(modelitem => item.title)</h3>
+                <span style="margin-right:10px;">来源:@item.origin</span>
+                <span style="margin-right:10px;">@item.creat_time</span>
+                <span style="margin-right:10px;">作者：@item.author</span>
+                <span>阅读量：@item.views_num</span>
+                <span style="float: right;"><a href="@Url.Action("like","Scidetail",new { id=item.id})"><span class="glyphicon glyphicon-thumbs-up fr">@ViewBag.likenum</span></a></span>
+                <span style="float: right; margin-right:15px;"><a href="JavaScript:;" data-toggle="modal" data-target="#exampleModal">收藏</a></span>
+                <hr style="margin-top:5px;">
+                <article>
+                    @Html.Raw(item.content)
+                </article>
+
+                <hr>
+                <!-- 评论部分 -->
+                using (Html.BeginForm("sciComment", "Scidetail", FormMethod.Post, new { id = "Comment" }))
+                {
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="@Session["UserPhoto"]" width="25" height="25" alt="">
+                            </a>
+                        </div>
+                        @Html.TextBox("article_id", item.id, new
+                        {
+                           @class = "text"
+                        })
+                        <div class="media-body">
+                            <textarea name="comment" id="" class=" form-control" rows="3" style="min-height: 100px; max-height: 100px;min-width: 100%;max-width: 100%;">请输入评论</textarea>
+                            <div><button class="btn btn-default" style="width:auto; float:right;">发表评论</button></div>
+                        </div>
+                    </div>
+                }
+                @Html.Partial("_PartialComment", Model.sci_Comments)
+                @*模态框*@
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">请选择收藏夹</h4>
+                            </div>
+                            <div class="modal-body">
+                                @Html.Action("Collects", "Artdetail", new { id = Session["User_id"], art_id = item.id })
+                            </div>
+                            @*<div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </div>*@
+                        </div>
+                    </div>
+                </div>
+                @*模态框*@
+            }
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">要闻</div>
+                    @Html.Action("News", "Artdetail")
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">博客</div>
+                    @Html.Action("Art", "Artdetail")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

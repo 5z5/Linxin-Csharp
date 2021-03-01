@@ -1,0 +1,17 @@
+C:\Users\13755\Desktop\临心网\Linxin\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\13755\Desktop\临心网\Linxin\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\DAL.dll.config
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\DAL.dll
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\DAL.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\EntityFramework.dll
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\IDAL.dll
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\Model.dll
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\IDAL.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\Model.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\Model.dll.config
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\EntityFramework.xml
+C:\Users\13755\Desktop\临心网\Linxin\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\13755\Desktop\临心网\Linxin\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\13755\Desktop\临心网\Linxin\DAL\obj\Debug\DAL.dll
+C:\Users\13755\Desktop\临心网\Linxin\DAL\obj\Debug\DAL.pdb

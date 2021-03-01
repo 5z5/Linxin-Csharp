@@ -1,0 +1,65 @@
+﻿@model accessPsychology.Models.Articles
+@{
+    ViewBag.Title = "Writing";
+    Layout = "~/Views/Shared/_LayoutArticle.cshtml";
+}
+<link href="~/Content/CKeditor/Ckeditorstyle.css" rel="stylesheet" />
+<link href="~/Content/Ckeditorwriting.css" rel="stylesheet" />
+<script src="~/Content/CKeditor/ckeditor.js"></script>
+<div class="container">
+    @using (Html.BeginForm("Save", "Writing", FormMethod.Post))
+    {
+        <div class="row">
+            <div class=" col-lg-6 col-lg-offset-3">
+                <input type="text" name="title" class="center-block form-control inputcss" value="请输入标题" id="title">
+            </div>
+        </div>
+        <div class="row" style="margin-top:5px;">
+
+            <textarea name="content" id="editor">
+                   请在这里编辑内容哟
+                    </textarea>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-lg-3 col-lg-offset-3">
+                    <input class="btn btn-default" type="submit" value="发布文章">
+                </div>
+                <div class="col-lg-3 col-lg-offset-1">
+                    <a href="/Home/Index" class="btn btn-default">返回首页</a>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+
+<script>
+    var title = document.querySelector("#title");
+    title.onfocus = function () {
+        if (this.value === "请输入标题") {
+            this.value = '';
+        }
+    }
+    title.onblur = function () {
+        if (this.value === '') {
+            this.value = '请输入标题';
+        } else if (this.value !== '请输入标题') {
+            this.style.color = '#555';
+        } else {
+            this.style.color = 'thistle';
+        }
+    }
+
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            cloudServices: {
+                tokenUrl: 'https://44221.cke-cs.com/token/dev/skuJELQBv4M9XuXdbdvgs3uh0vkRb5Jte8yVJJH71UYLYKBd3WcdMTJTQKrx',
+                uploadUrl: 'https://44221.cke-cs.com/easyimage/upload/'
+            }
+        })
+        .then(newEditor => {
+            editor = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

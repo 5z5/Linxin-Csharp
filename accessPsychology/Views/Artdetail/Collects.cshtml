@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+    <ul class="list-group">
+        @foreach (var m in ViewBag.collect)
+        {
+            <li class="list-group-item"><a href="@Url.Action("Col","Artdetail",new { col_id=m.id,art_id=ViewBag.art_id})">@m.col_name</a></li>
+
+        }
+    </ul>
+    @*<script>
+        function addToCollect(id){
+            $.ajax({
+                data: { art_id:@ViewBag.art_id, col_id: id },
+                url: "/Artdetail/Col",
+                dataType: "json",
+                success: function (result) {
+                    alert("插入成功");
+                }
+            })
+        }
+    </script>*@

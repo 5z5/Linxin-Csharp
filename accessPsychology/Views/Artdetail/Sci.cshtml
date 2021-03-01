@@ -1,0 +1,10 @@
+﻿@{
+    Layout = null;
+}
+<ul class="list-group">
+    @foreach (var n in ViewBag.sci)
+    {
+        <a href="/Scidetail/sci_article/@n.id"><li class="list-group-item">@n.title</li></a>
+    }
+</ul>
+

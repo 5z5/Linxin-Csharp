@@ -1,0 +1,60 @@
+﻿.grow li {
+    padding: 0;
+}
+
+.card-home {
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.card-title-home {
+    cursor: pointer;
+    margin: 0;
+}
+
+    .card-title-home:hover {
+        color: #abdde5;
+    }
+
+.card-body-home {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0;
+    padding-top: 5px;
+    font-size: 14px;
+}
+
+.card-footer-home {
+    background: white;
+    border: 0;
+    padding-top: 5px;
+}
+
+.card-footer-body {
+    float: right;
+}
+
+.author {
+    padding-right: 180px;
+}
+
+.glyphicon-thumbs-up {
+    vertical-align: -2px;
+    margin-right: 4px;
+}
+
+    .glyphicon-thumbs-up:hover {
+        color: #abdde5;
+        cursor: pointer;
+    }
+
+.thumbNum {
+    color: #abdde5;
+}
+
+.H4 {
+    font-weight: 700;
+    font-size: 18px;
+}

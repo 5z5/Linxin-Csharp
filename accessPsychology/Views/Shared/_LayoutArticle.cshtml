@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/homePages.css" rel="stylesheet" />
+    <link href="~/Content/homePage.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap3.min.css" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/logIn.js")"></script>
+    <script src="@Url.Content("~/Scripts/respond.js")"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Content/bootstrap3.js"></script>
+    <script src="@Url.Content("~/Scripts/details.js")"></script>
+    <script src="@Url.Content("~/Scripts/stroll.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/logIn.js")"></script>
+</head>
+<body>
+    @*模态框*@
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">用户登录</h4>
+                </div>
+                @using (Html.BeginForm("Login1", "Account", FormMethod.Post, new { id = "login1Form" }))
+                {
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">用户名:</label>
+                                <input type="text" class="form-control" id="txtUserName" name="user_name1">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="control-label">密码:</label>
+                                <input type="password" class="form-control" id="txtPassword" name="password1">
+                            </div>
+                            <div class="from-group">
+                                <div class="row">
+                                    <div class="col-lg-2 ">
+                                        <label for="message-text" class="text-left">验证码:</label>
+                                    </div>
+                                    <div class="col-lg-4 col-lg-pull-1">
+                                        <input type="text" class="form-control" id="txtVerifcode" name="identity1">
+                                    </div>
+                                    <img id="imgCaptcha" class="col-3" src="~/Handlers/Captcha.ashx" style="vertical-align:middle;" />
+                                    <div class="updateVerify btn btn-primary" onclick="Refresh1();">看不清</div>
+                                    <!--验证码js-->
+                                    <script type="text/javascript">
+                                        function Refresh1() {
+                                            var img = document.getElementById("imgCaptcha1");
+                                            img.src = "/Handlers/Captcha.ashx?query=" + Math.random();
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+                    <a type="button" class="btn btn-primary" href="javascript:document.getElementById('login1Form').submit()" name="logIn">登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*模态框*@
+
+    <nav class="navbar navbar-inverse navbar-static-top navbar-bule">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href=""><img src="~/images/logo.png" width="30" height="30" alt="Alternate Text" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/Home/Index">首页<span class="sr-only">(current)</span></a></li>
+                    <li><a href="/Science/Index">科普</a></li>
+                    <li><a href="/Blog/Index">博客</a></li>
+                    <li><a href="/ImportantNews/Index">要闻</a></li>
+                    <li><a href="/QuestionAndAnswer/Index">问答</a></li>
+                    <li><a href="/Video/Index">视频</a></li>
+                    <li><a href="/FunQuiz/Index">趣味小测验</a></li>
+                </ul>
+                @if (Session["UserName"] != null)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            @Html.AntiForgeryToken();
+                            <li class="userLogin" style="margin-top: 7px;">
+                                <img class="loginCenter" src="@Session["UserPhoto"]" />
+                                <div class="userControl" style="display: none;">
+                                    <div class="bord">
+                                        <div style="width: 120px;">
+                                            <i class="glyphicon glyphicon-user"></i><a href="/PersonalCenter/Index/1" target="_blank">个人中心</a>
+                                        </div>
+                                        <div>
+                                            <i class="glyphicon glyphicon-bookmark"></i><a href="/PersonalCenter/Index/2" target="_blank">我的收藏</a>
+                                        </div>
+                                    </div>
+                                    <div class="bord">
+                                        <div>
+                                            <i class="glyphicon glyphicon-list-alt"></i><a href="/PersonalCenter/Index/3" target="_blank">我的博客</a>
+                                        </div>
+                                        <div>
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                            <a href="/PersonalCenter/Index/4" target="_blank">我的提问</a>
+                                        </div>
+                                    </div>
+                                    <div class="bord">
+                                        <div>
+                                            <i class="glyphicon glyphicon-question-sign"></i>
+                                            <a href="" target="_blank">帮助</a>
+                                        </div>
+                                        <div>
+                                            <i class="glyphicon glyphicon-arrow-right"></i>
+                                            <a href="javascript:document.getElementById('logoutForm').submit()" class="logout">退出</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-backdrop="static" data-toggle="modal" data-target="#myModal">登录</a></li>
+                        <li style="padding: 15px 0px; color:white">/</li>
+                        <li><a href="/Account/Register">注册</a></li>
+                    </ul>
+                }
+                <form action="/Search/search" method="post" class="navbar-form navbar-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="搜索">
+                        <span class="input-group-btn">
+                            <button class=" btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <script>
+        $('#myModal').modal(options)
+    </script>
+
+    <div>
+        @RenderBody()
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row footer-attention">
+                <div class="col-lg-1">
+                    <div class="col-lg-6 col-lg-pull-3"><a><img src="~/images/微信.png" /></a></div>
+                    <div class="col-lg-6 col-lg-pull-3"><a><img src="~/images/微博.png" /></a></div>
+                </div>
+            </div>
+            <div class="row footer-middle">
+                <div class="col-lg-4 footer-middle-left">
+                    <div class="row">临心（深圳）科技有限公司</div>
+                    <div class="row">全部信息 临心文章 版权所有 未经允许 严禁转载</div>
+                    <div class="row">Copyright @@ 2019 linxinchuanbo.com All Rights Reserved</div>
+                </div>
+                <div class="col-lg-5 col-lg-offset-3 footer-middle-right">
+                    <div class="row">
+                        <div class="col-lg-2 footer-link"><a>首页</a></div>
+                        <div class="col-lg-2 footer-link"><a>APP下载</a></div>
+                        <div class="col-lg-2 footer-link"><a>关于临心</a></div>
+                        <div class="col-lg-2 footer-link"><a>加入我们</a></div>
+                        <div class="col-lg-2 footer-link"><a>我要投稿</a></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 footer-link"><a>帮助FAQ</a></div>
+                        <div class="col-lg-2 footer-link"><a>游戏中心</a></div>
+                        <div class="col-lg-2 footer-link"><a>专家审核</a></div>
+                        <div class="col-lg-2 footer-link"><a>用户协议</a></div>
+                        <div class="col-lg-2 footer-link"><a>联系我们</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

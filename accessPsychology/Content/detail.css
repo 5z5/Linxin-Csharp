@@ -1,0 +1,47 @@
+.navbar-bule {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
+}
+
+.navbar-default {
+
+    border: none;
+}
+.photo{
+    border-radius: 25px;
+    background-color:red;
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.col-margin{
+    margin-left: -25px;
+}
+
+.comment{
+    float: right;
+}
+
+.media-left{
+    border-radius: 65px;
+}
+
+.media-btn{
+    display: block;
+}
+
+.media-btn span{
+    float: right;
+    margin-right: 5px;
+}
+ul,ol{
+    padding-left:40px;
+}
+.fr {
+    float: right;
+    margin-right: 10px;
+}
+
+img{
+    max-width:700px;
+}

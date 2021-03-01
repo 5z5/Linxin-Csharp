@@ -1,0 +1,253 @@
+﻿.nav-left a {
+    color: black;
+    font-size: 14px;
+}
+
+.nowNav {
+    background: aqua;
+}
+
+.person-title {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.head-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.span-img {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    color: #3399ea;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.input-img {
+    width: 100px;
+    height: 21px;
+    position: absolute;
+    cursor: pointer;
+    left: 15px;
+    bottom: 0;
+    opacity: 0;
+}
+
+.to-person {
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    color: #3399ea !important;
+    cursor: pointer;
+}
+
+    .to-person:hover {
+        color: #157dcf !important;
+    }
+
+    .to-person[data-v-0d738edb]:after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid #3399ea;
+        border-right: 1px solid #3399ea;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+.change-info {
+    color: #3399ea;
+    position: absolute;
+    right: 0;
+}
+
+.title1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.title2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.title3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.new-collect {
+    color: #6b6b6b;
+    font-weight: 400;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.add {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.favorites {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.default-favorites {
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    width: 100%;
+}
+
+.wrap-num {
+    color: #999;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.linxin-chevronright {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    top: 28px;
+    right: 0;
+    cursor: pointer;
+}
+
+.write-blog {
+    text-decoration: none;
+    font-size: 14px;
+    color: #3399ea !important;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+    .write-blog:hover {
+        color: #157dcf !important;
+    }
+
+.blog-title {
+    font-size: 18px;
+    color: #4d4d4d;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.own-blog {
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.glyphicon-pencil {
+    margin-right: 2px;
+}
+
+.deleteBlog {
+    color: red !important;
+    font-size: 14px;
+}
+
+.blog-footer {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(153, 153, 153);
+}
+
+.glyphicon-eye-open {
+    vertical-align: -3px;
+    margin-right: 3px;
+}
+
+.userType {
+    margin-right: 20px;
+}
+
+.createTime {
+    margin-right: 20px;
+    vertical-align: -2px;
+}
+
+.visitNum {
+    vertical-align: -2px;
+}
+
+.wrapOperateBlog {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.deleteBlog {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.pageBreak {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.askQuestion {
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    color: #3399ea !important;
+    cursor: pointer;
+}
+
+    .askQuestion:hover {
+        color: #157dcf !important;
+    }
+
+.question-title {
+    font-size: 18px;
+    color: #4d4d4d;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.own-question {
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.askTime {
+    margin-right: 20px;
+}
+
+.deleteAsk {
+    color: red !important;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.wrapOperateAsk {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.container {
+    transition: left 1500ms ease;
+}

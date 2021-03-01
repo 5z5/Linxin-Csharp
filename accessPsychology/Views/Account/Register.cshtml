@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model accessPsychology.Models.RegisterViewModel
+<link href="~/Content/register.css" type="text/css" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "RegisterForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="wrap-one">
+        <div class="wrap-two">
+            <div class="content">
+                <div class="userName">
+                    @Html.LabelFor(m => m.user_name, new { @style = "width:80px;text-align:right;" })
+                    @Html.TextBoxFor(m => m.user_name, new { placeholder = "请输入用户名" })
+                    @Html.ValidationMessageFor(m => m.user_name)
+                </div>
+                <div class="password">
+                    @Html.LabelFor(m => m.Password, new { @style = "width:80px;text-align:right;" })
+                    @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "请输入密码" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="confirmPassword">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @style = "width:80px;text-align:right;" })
+                    @Html.TextBoxFor(m => m.ConfirmPassword, new { type = "password", placeholder = "请再次输入密码" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+                <div class="headImage">
+                    <label style="width:80px;text-align:right;">头像：</label>
+                    @Html.TextBoxFor(model => model.UserPhoto, new { style = "width:150px;", placeholder = "添加头像", id = "copyFile" })
+                    <input type="file" name="file" class="uploadFile" onchange="document.getElementById('copyFile').value = this.value" />
+                    <a style="width: 50px;height: 38px;cursor: pointer; display: inline-block;vertical-align: bottom;" class="btn btn-primary">
+                        浏览
+                    </a>
+                    @Html.ValidationMessageFor(m => m.UserPhoto)
+                </div>  
+                <div class="telNum">
+                    @Html.LabelFor(m => m.tel_phone, new { @style = "width:80px;text-align:right;" })
+                    @Html.TextBoxFor(m => m.tel_phone, new { placeholder = "请输入您的手机号" })
+                    @Html.ValidationMessageFor(m => m.tel_phone)
+                </div>
+                <div class="sex" style="height:45px;">
+                    <label style="width:80px;text-align:right;">性别：</label>
+                    <label>男</label><input type="radio" name="sex" value="男">
+                    <label>女</label><input type="radio" name="sex" value="女">
+                    @Html.ValidationMessageFor(m => m.sex)
+                </div>
+                    <div class="identity">
+                        <label style="width:80px;text-align:right;">身份：</label>
+                         <select name="identity" class="form-control">
+                              <option selected>普通用户</option>
+                             <option>心理学者</option>
+                          </select>
+                    </div>
+                    <div class="selfIntroduction" style="height: 103px;">
+                        <label style="width:80px;height:80px;text-align:right;margin-bottom:0;vertical-align:bottom;">自我介绍：</label>
+                        @Html.TextAreaFor(m => m.introduce, new { @class = "self-introduction-area", placeholder = "自我介绍" })
+                        @Html.ValidationMessageFor(m => m.introduce)
+                    </div>
+                    <div class="verifyCode">
+                        <label style="width:80px;text-align:right;">验证码：</label>
+                        <input style="width:80px;" placeholder="验证码" type="text" name="ValidateCode" />
+                        <img style="width:85px;margin-bottom:2px;" id="imgCaptcha1" src="~/Handlers/Captcha.ashx" />
+                        <div style="width:85px;margin-bottom:1px;" class="btn btn-primary" onclick="Refresh1();">看不清</div>
+                    </div>
+                    <div class="register">
+                        <a style="width:100px;display:block;margin:auto auto;" href="javascript:document.getElementById('RegisterForm').submit()" class="btn btn-primary" id="btnregister">注册</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+}
+<script>
+    function Refresh1() {
+        var img = document.getElementById("imgCaptcha1");
+        img.src = "/Handlers/Captcha.ashx?query=" + Math.random();
+    }
+</script>
+
+
+
+
+
+

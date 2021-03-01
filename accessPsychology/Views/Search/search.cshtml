@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_LayoutArticle.cshtml";
+}
+    <div class="container">
+        <ul class="list-group">
+            @foreach (var n in ViewBag.content)
+            {
+                <li class="list-group-item"><a href="/Artdetail/detail/@n.id">@n.title</a></li>
+            }
+        </ul>
+    </div>
+

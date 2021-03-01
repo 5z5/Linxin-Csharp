@@ -1,0 +1,222 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -临心</title>
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/layui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/stroll.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/example.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/homePage1.css" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/layui.js")"></script>
+    <script src="~/Scripts/Public.js"></script>
+    <script src="~/Scripts/homePage1.js"></script>
+    <script src="@Url.Content("~/Scripts/details.js")"></script>
+    <script src="@Url.Content("~/Scripts/stroll.min.js")"></script>
+</head>
+<body>
+    <div class="" style="width: 1250px;margin: auto auto;">
+        <div class="">
+            <div class="" style="float: left;margin-right:20px;">
+                <div class="layui-carousel" id="test1">
+                    <div carousel-item>
+                        <a style="background: dodgerblue"><img src="~/images/视觉搜索.jpg" style="width: 100%;height:280px;" /></a>
+                        <a style="background: red"><img src="~/images/留守儿童的亲子依恋关系与同胞关系状况 .jpg" style="width: 100%;height:280px;" /></a>
+                        <a style="background: indianred"><img src="~/images/沙盘疗法对青少年人际信任的影响.jpg" style="width: 100%;height:280px;" /></a>
+                        <a style="background: pink"><img src="~/images/人格研究新进展.jpg" style="width: 100%;height:280px;" /></a>
+                        <a style="background: green"><img src="~/images/情绪对连续事件定向遗忘的影响.jpg" style="width: 100%;height:280px;" /></a>
+                    </div>
+                </div>
+                <div id="main" style="width: 850px;">
+                    <article>
+                        <ul class="grow ul">
+                        </ul>
+                    </article>
+                </div>
+            </div>
+            <div class=" ranking">
+                <div class="card">
+                    <div class="card-header">要闻</div>
+                    <div class="card-body">
+                        <p class="card-text"><span class="layui-badge">1</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">2</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">3</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">4</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">5</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">6</span>bjksehrfe</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">新进展</div>
+                    <div class="card-body">
+                        <p class="card-text"><span class="layui-badge">1</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">2</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">3</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">4</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">5</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">6</span>bjksehrfe</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">周热度</div>
+                    <div class="card-body">
+                        <p class="card-text"><span class="layui-badge">1</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">2</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">3</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">4</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">5</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">6</span>bjksehrfe</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">高热度问题</div>
+                    <div class="card-body">
+                        <p class="card-text"><span class="layui-badge">1</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">2</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge">3</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">4</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">5</span>bjksehrfe</p>
+                        <p class="card-text"><span class="layui-badge layui-bg-gray">6</span>bjksehrfe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--文本滚动-->
+    <script>
+        stroll.bind('#main ul');
+    </script>
+    <!--轮播图调用layui模块-->
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test1'
+                , width: '500px' //设置容器宽度
+                , arrow: 'always' //始终显示箭头
+                ,interval: 3000
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+    </script>
+    <!--上传图片layui模块-->
+    <script>
+        layui.use('upload', function () {
+            var $ = layui.jquery
+                , upload = layui.upload;
+
+            //普通图片上传
+            var uploadInst = upload.render({
+                elem: '#test2'
+                , url: '/upload/'
+                , before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#demo1').attr('src', result); //图片链接（base64）
+                    });
+                }
+                , done: function (res) {
+                    //如果上传失败
+                    if (res.code > 0) {
+                        return layer.msg('上传失败');
+                    }
+                    //上传成功
+                }
+                , error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#demoText');
+                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                }
+            });
+
+            //同时绑定多个元素，并将属性设定在元素上
+            upload.render({
+                elem: '.demoMore'
+                , before: function () {
+                    layer.tips('接口地址：' + this.url, this.item, { tips: 1 });
+                }
+                , done: function (res, index, upload) {
+                    var item = this.item;
+                    console.log(item); //获取当前触发上传的元素，layui 2.1.0 新增
+                }
+            })
+
+            //多文件列表示例
+            var demoListView = $('#demoList')
+                , uploadListIns = upload.render({
+                    elem: '#testList'
+                    , url: '/upload/'
+                    , accept: 'file'
+                    , multiple: true
+                    , auto: false
+                    , bindAction: '#testListAction'
+                    , choose: function (obj) {
+                        var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                        //读取本地文件
+                        obj.preview(function (index, file, result) {
+                            var tr = $(['<tr id="upload-' + index + '">'
+                                , '<td>' + file.name + '</td>'
+                                , '<td>' + (file.size / 1014).toFixed(1) + 'kb</td>'
+                                , '<td>等待上传</td>'
+                                , '<td>'
+                                , '<button class="layui-btn layui-btn-xs demo-reload layui-hide">重传</button>'
+                                , '<button class="layui-btn layui-btn-xs layui-btn-danger demo-delete">删除</button>'
+                                , '</td>'
+                                , '</tr>'].join(''));
+
+                            //单个重传
+                            tr.find('.demo-reload').on('click', function () {
+                                obj.upload(index, file);
+                            });
+
+                            //删除
+                            tr.find('.demo-delete').on('click', function () {
+                                delete files[index]; //删除对应的文件
+                                tr.remove();
+                                uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                            });
+
+                            demoListView.append(tr);
+                        });
+                    }
+                    , done: function (res, index, upload) {
+                        if (res.code == 0) { //上传成功
+                            var tr = demoListView.find('tr#upload-' + index)
+                                , tds = tr.children();
+                            tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');
+                            tds.eq(3).html(''); //清空操作
+                            return delete this.files[index]; //删除文件队列已经上传成功的文件
+                        }
+                        this.error(index, upload);
+                    }
+                    , error: function (index, upload) {
+                        var tr = demoListView.find('tr#upload-' + index)
+                            , tds = tr.children();
+                        tds.eq(2).html('<span style="color: #FF5722;">上传失败</span>');
+                        tds.eq(3).find('.demo-reload').removeClass('layui-hide'); //显示重传
+                    }
+                });
+
+            //绑定原始文件域
+            upload.render({
+                elem: '#test20'
+                , url: '/upload/'
+                , done: function (res) {
+                    console.log(res)
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

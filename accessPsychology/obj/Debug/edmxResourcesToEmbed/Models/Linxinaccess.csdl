@@ -1,0 +1,1131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LinxinaccessModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer_Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="answer_id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="parent_comment_id" Type="Int32" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__Answer_Co__answe__398D8EEE" FromRole="Answer_Comment" ToRole="Answers" />
+    <NavigationProperty Name="Answer_Comment1" Relationship="Self.FK__Answer_Co__paren__3A81B327" FromRole="Answer_Comment" ToRole="Answer_Comment1" />
+    <NavigationProperty Name="Answer_Comment2" Relationship="Self.FK__Answer_Co__paren__3A81B327" FromRole="Answer_Comment1" ToRole="Answer_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Answer_Co__users__38996AB5" FromRole="Answer_Comment" ToRole="Users" />
+    <NavigationProperty Name="likes_ans_comment" Relationship="Self.FK__likes_ans__ans_c__09A971A2" FromRole="Answer_Comment" ToRole="likes_ans_comment" />
+  </EntityType>
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="question_id" Type="Int32" Nullable="false" />
+    <Property Name="answer_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <Property Name="type" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Answer_Comment" Relationship="Self.FK__Answer_Co__answe__398D8EEE" FromRole="Answers" ToRole="Answer_Comment" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Answers__questio__33D4B598" FromRole="Answers" ToRole="Questions" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Answers__users_i__32E0915F" FromRole="Answers" ToRole="Users" />
+    <NavigationProperty Name="Col_ans" Relationship="Self.FK__Col_ans__ans_id__6754599E" FromRole="Answers" ToRole="Col_ans" />
+    <NavigationProperty Name="likes_ans" Relationship="Self.FK__likes_ans__ans_i__76969D2E" FromRole="Answers" ToRole="likes_ans" />
+  </EntityType>
+  <EntityType Name="Art_Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="article_id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="parent_comment_id" Type="Int32" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK__Art_Comme__artic__403A8C7D" FromRole="Art_Comment" ToRole="Articles" />
+    <NavigationProperty Name="Art_Comment1" Relationship="Self.FK__Art_Comme__paren__412EB0B6" FromRole="Art_Comment" ToRole="Art_Comment1" />
+    <NavigationProperty Name="Art_Comment2" Relationship="Self.FK__Art_Comme__paren__412EB0B6" FromRole="Art_Comment1" ToRole="Art_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Art_Comme__users__3F466844" FromRole="Art_Comment" ToRole="Users" />
+    <NavigationProperty Name="likes_art_comment" Relationship="Self.FK__likes_art__art_c__02084FDA" FromRole="Art_Comment" ToRole="likes_art_comment" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="like_num" Type="Int32" />
+    <Property Name="comment_num" Type="Int32" />
+    <Property Name="views_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Art_Comment" Relationship="Self.FK__Art_Comme__artic__403A8C7D" FromRole="Articles" ToRole="Art_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Articles__users___182C9B23" FromRole="Articles" ToRole="Users" />
+    <NavigationProperty Name="Col_art" Relationship="Self.FK__Col_art__art_id__5BE2A6F2" FromRole="Articles" ToRole="Col_art" />
+    <NavigationProperty Name="likes_art" Relationship="Self.FK__likes_art__art_i__6B24EA82" FromRole="Articles" ToRole="likes_art" />
+  </EntityType>
+  <EntityType Name="Col_ans">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="collects_id" Type="Int32" Nullable="false" />
+    <Property Name="ans_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__Col_ans__ans_id__6754599E" FromRole="Col_ans" ToRole="Answers" />
+    <NavigationProperty Name="Collects" Relationship="Self.FK__Col_ans__collect__66603565" FromRole="Col_ans" ToRole="Collects" />
+  </EntityType>
+  <EntityType Name="Col_art">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="collects_id" Type="Int32" Nullable="false" />
+    <Property Name="art_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK__Col_art__art_id__5BE2A6F2" FromRole="Col_art" ToRole="Articles" />
+    <NavigationProperty Name="Collects" Relationship="Self.FK__Col_art__collect__5AEE82B9" FromRole="Col_art" ToRole="Collects" />
+  </EntityType>
+  <EntityType Name="Col_news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="collects_id" Type="Int32" Nullable="false" />
+    <Property Name="news_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Collects" Relationship="Self.FK__Col_news__collec__628FA481" FromRole="Col_news" ToRole="Collects" />
+    <NavigationProperty Name="Psy_news" Relationship="Self.FK__Col_news__news_i__6383C8BA" FromRole="Col_news" ToRole="Psy_news" />
+  </EntityType>
+  <EntityType Name="Col_sci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="collects_id" Type="Int32" Nullable="false" />
+    <Property Name="sci_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Collects" Relationship="Self.FK__Col_sci__collect__5EBF139D" FromRole="Col_sci" ToRole="Collects" />
+    <NavigationProperty Name="Sci_articles" Relationship="Self.FK__Col_sci__sci_id__5FB337D6" FromRole="Col_sci" ToRole="Sci_articles" />
+  </EntityType>
+  <EntityType Name="Collects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="col_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="introduces" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Col_ans" Relationship="Self.FK__Col_ans__collect__66603565" FromRole="Collects" ToRole="Col_ans" />
+    <NavigationProperty Name="Col_art" Relationship="Self.FK__Col_art__collect__5AEE82B9" FromRole="Collects" ToRole="Col_art" />
+    <NavigationProperty Name="Col_news" Relationship="Self.FK__Col_news__collec__628FA481" FromRole="Collects" ToRole="Col_news" />
+    <NavigationProperty Name="Col_sci" Relationship="Self.FK__Col_sci__collect__5EBF139D" FromRole="Collects" ToRole="Col_sci" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Collects__users___5812160E" FromRole="Collects" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_ans">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="ans_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__likes_ans__ans_i__76969D2E" FromRole="likes_ans" ToRole="Answers" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_ans__users__75A278F5" FromRole="likes_ans" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_ans_comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="ans_comment_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Answer_Comment" Relationship="Self.FK__likes_ans__ans_c__09A971A2" FromRole="likes_ans_comment" ToRole="Answer_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_ans__users__08B54D69" FromRole="likes_ans_comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_art">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="art_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK__likes_art__art_i__6B24EA82" FromRole="likes_art" ToRole="Articles" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_art__users__6A30C649" FromRole="likes_art" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_art_comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="art_comment_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Art_Comment" Relationship="Self.FK__likes_art__art_c__02084FDA" FromRole="likes_art_comment" ToRole="Art_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_art__users__01142BA1" FromRole="likes_art_comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="news_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Psy_news" Relationship="Self.FK__likes_new__news___72C60C4A" FromRole="likes_news" ToRole="Psy_news" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_new__users__71D1E811" FromRole="likes_news" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_news_comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="news_comment_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="News_Comment" Relationship="Self.FK__likes_new__news___7A672E12" FromRole="likes_news_comment" ToRole="News_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_new__users__797309D9" FromRole="likes_news_comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_sci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="sci_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sci_articles" Relationship="Self.FK__likes_sci__sci_i__6EF57B66" FromRole="likes_sci" ToRole="Sci_articles" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_sci__users__6E01572D" FromRole="likes_sci" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_sci_comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="sci_comment_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sci_Comment" Relationship="Self.FK__likes_sci__sci_c__7E37BEF6" FromRole="likes_sci_comment" ToRole="Sci_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_sci__users__7D439ABD" FromRole="likes_sci_comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="likes_video_comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="video_comment_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__likes_vid__users__04E4BC85" FromRole="likes_video_comment" ToRole="Users" />
+    <NavigationProperty Name="Videos_Comment" Relationship="Self.FK__likes_vid__video__05D8E0BE" FromRole="likes_video_comment" ToRole="Videos_Comment" />
+  </EntityType>
+  <EntityType Name="News_Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="article_id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="parent_comment_id" Type="Int32" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="likes_news_comment" Relationship="Self.FK__likes_new__news___7A672E12" FromRole="News_Comment" ToRole="likes_news_comment" />
+    <NavigationProperty Name="Psy_news" Relationship="Self.FK__News_Comm__artic__4D94879B" FromRole="News_Comment" ToRole="Psy_news" />
+    <NavigationProperty Name="News_Comment1" Relationship="Self.FK__News_Comm__paren__4E88ABD4" FromRole="News_Comment" ToRole="News_Comment1" />
+    <NavigationProperty Name="News_Comment2" Relationship="Self.FK__News_Comm__paren__4E88ABD4" FromRole="News_Comment1" ToRole="News_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__News_Comm__users__4CA06362" FromRole="News_Comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Psy_news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="origin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="author" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="comment_num" Type="Int32" />
+    <Property Name="views_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Col_news" Relationship="Self.FK__Col_news__news_i__6383C8BA" FromRole="Psy_news" ToRole="Col_news" />
+    <NavigationProperty Name="likes_news" Relationship="Self.FK__likes_new__news___72C60C4A" FromRole="Psy_news" ToRole="likes_news" />
+    <NavigationProperty Name="News_Comment" Relationship="Self.FK__News_Comm__artic__4D94879B" FromRole="Psy_news" ToRole="News_Comment" />
+  </EntityType>
+  <EntityType Name="Psy_videos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="route" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="comment_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Videos_Comment" Relationship="Self.FK__Videos_Co__video__5441852A" FromRole="Psy_videos" ToRole="Videos_Comment" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="quesition_content" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="question_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__questio__33D4B598" FromRole="Questions" ToRole="Answers" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Questions__users__2C3393D0" FromRole="Questions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sci_articles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="origin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="author" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="comment_num" Type="Int32" />
+    <Property Name="views_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Col_sci" Relationship="Self.FK__Col_sci__sci_id__5FB337D6" FromRole="Sci_articles" ToRole="Col_sci" />
+    <NavigationProperty Name="likes_sci" Relationship="Self.FK__likes_sci__sci_i__6EF57B66" FromRole="Sci_articles" ToRole="likes_sci" />
+    <NavigationProperty Name="Sci_Comment" Relationship="Self.FK__Sci_Comme__artic__46E78A0C" FromRole="Sci_articles" ToRole="Sci_Comment" />
+  </EntityType>
+  <EntityType Name="Sci_Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="article_id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="parent_comment_id" Type="Int32" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="likes_sci_comment" Relationship="Self.FK__likes_sci__sci_c__7E37BEF6" FromRole="Sci_Comment" ToRole="likes_sci_comment" />
+    <NavigationProperty Name="Sci_articles" Relationship="Self.FK__Sci_Comme__artic__46E78A0C" FromRole="Sci_Comment" ToRole="Sci_articles" />
+    <NavigationProperty Name="Sci_Comment1" Relationship="Self.FK__Sci_Comme__paren__47DBAE45" FromRole="Sci_Comment" ToRole="Sci_Comment1" />
+    <NavigationProperty Name="Sci_Comment2" Relationship="Self.FK__Sci_Comme__paren__47DBAE45" FromRole="Sci_Comment1" ToRole="Sci_Comment" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Sci_Comme__users__45F365D3" FromRole="Sci_Comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="sex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="tel_phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="head_img" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="introduce" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="user_type" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="creat_time" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Answer_Comment" Relationship="Self.FK__Answer_Co__users__38996AB5" FromRole="Users" ToRole="Answer_Comment" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__users_i__32E0915F" FromRole="Users" ToRole="Answers" />
+    <NavigationProperty Name="Art_Comment" Relationship="Self.FK__Art_Comme__users__3F466844" FromRole="Users" ToRole="Art_Comment" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK__Articles__users___182C9B23" FromRole="Users" ToRole="Articles" />
+    <NavigationProperty Name="Collects" Relationship="Self.FK__Collects__users___5812160E" FromRole="Users" ToRole="Collects" />
+    <NavigationProperty Name="likes_ans" Relationship="Self.FK__likes_ans__users__75A278F5" FromRole="Users" ToRole="likes_ans" />
+    <NavigationProperty Name="likes_ans_comment" Relationship="Self.FK__likes_ans__users__08B54D69" FromRole="Users" ToRole="likes_ans_comment" />
+    <NavigationProperty Name="likes_art" Relationship="Self.FK__likes_art__users__6A30C649" FromRole="Users" ToRole="likes_art" />
+    <NavigationProperty Name="likes_art_comment" Relationship="Self.FK__likes_art__users__01142BA1" FromRole="Users" ToRole="likes_art_comment" />
+    <NavigationProperty Name="likes_news" Relationship="Self.FK__likes_new__users__71D1E811" FromRole="Users" ToRole="likes_news" />
+    <NavigationProperty Name="likes_news_comment" Relationship="Self.FK__likes_new__users__797309D9" FromRole="Users" ToRole="likes_news_comment" />
+    <NavigationProperty Name="likes_sci" Relationship="Self.FK__likes_sci__users__6E01572D" FromRole="Users" ToRole="likes_sci" />
+    <NavigationProperty Name="likes_sci_comment" Relationship="Self.FK__likes_sci__users__7D439ABD" FromRole="Users" ToRole="likes_sci_comment" />
+    <NavigationProperty Name="likes_video_comment" Relationship="Self.FK__likes_vid__users__04E4BC85" FromRole="Users" ToRole="likes_video_comment" />
+    <NavigationProperty Name="News_Comment" Relationship="Self.FK__News_Comm__users__4CA06362" FromRole="Users" ToRole="News_Comment" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__users__2C3393D0" FromRole="Users" ToRole="Questions" />
+    <NavigationProperty Name="Sci_Comment" Relationship="Self.FK__Sci_Comme__users__45F365D3" FromRole="Users" ToRole="Sci_Comment" />
+    <NavigationProperty Name="Videos_Comment" Relationship="Self.FK__Videos_Co__users__534D60F1" FromRole="Users" ToRole="Videos_Comment" />
+  </EntityType>
+  <EntityType Name="Videos_Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id" Type="Int32" Nullable="false" />
+    <Property Name="videos_id" Type="Int32" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="parent_comment_id" Type="Int32" />
+    <Property Name="likes_num" Type="Int32" />
+    <Property Name="creat_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="likes_video_comment" Relationship="Self.FK__likes_vid__video__05D8E0BE" FromRole="Videos_Comment" ToRole="likes_video_comment" />
+    <NavigationProperty Name="Psy_videos" Relationship="Self.FK__Videos_Co__video__5441852A" FromRole="Videos_Comment" ToRole="Psy_videos" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Videos_Co__users__534D60F1" FromRole="Videos_Comment" ToRole="Users" />
+    <NavigationProperty Name="Videos_Comment1" Relationship="Self.FK__Videos_Co__paren__5535A963" FromRole="Videos_Comment" ToRole="Videos_Comment1" />
+    <NavigationProperty Name="Videos_Comment2" Relationship="Self.FK__Videos_Co__paren__5535A963" FromRole="Videos_Comment1" ToRole="Videos_Comment" />
+  </EntityType>
+  <Association Name="FK__Answer_Co__answe__398D8EEE">
+    <End Role="Answers" Type="Self.Answers" Multiplicity="1" />
+    <End Role="Answer_Comment" Type="Self.Answer_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Answer_Comment">
+        <PropertyRef Name="answer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Answer_Co__paren__3A81B327">
+    <End Role="Answer_Comment" Type="Self.Answer_Comment" Multiplicity="0..1" />
+    <End Role="Answer_Comment1" Type="Self.Answer_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Answer_Comment1">
+        <PropertyRef Name="parent_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Answer_Co__users__38996AB5">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Answer_Comment" Type="Self.Answer_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Answer_Comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_ans__ans_c__09A971A2">
+    <End Role="Answer_Comment" Type="Self.Answer_Comment" Multiplicity="1" />
+    <End Role="likes_ans_comment" Type="Self.likes_ans_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_ans_comment">
+        <PropertyRef Name="ans_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Answers__questio__33D4B598">
+    <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="question_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Answers__users_i__32E0915F">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_ans__ans_id__6754599E">
+    <End Role="Answers" Type="Self.Answers" Multiplicity="1" />
+    <End Role="Col_ans" Type="Self.Col_ans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_ans">
+        <PropertyRef Name="ans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_ans__ans_i__76969D2E">
+    <End Role="Answers" Type="Self.Answers" Multiplicity="1" />
+    <End Role="likes_ans" Type="Self.likes_ans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_ans">
+        <PropertyRef Name="ans_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Art_Comme__artic__403A8C7D">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+    <End Role="Art_Comment" Type="Self.Art_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Art_Comment">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Art_Comme__paren__412EB0B6">
+    <End Role="Art_Comment" Type="Self.Art_Comment" Multiplicity="0..1" />
+    <End Role="Art_Comment1" Type="Self.Art_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Art_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Art_Comment1">
+        <PropertyRef Name="parent_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Art_Comme__users__3F466844">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Art_Comment" Type="Self.Art_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Art_Comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_art__art_c__02084FDA">
+    <End Role="Art_Comment" Type="Self.Art_Comment" Multiplicity="1" />
+    <End Role="likes_art_comment" Type="Self.likes_art_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Art_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_art_comment">
+        <PropertyRef Name="art_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__users___182C9B23">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_art__art_id__5BE2A6F2">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+    <End Role="Col_art" Type="Self.Col_art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_art">
+        <PropertyRef Name="art_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_art__art_i__6B24EA82">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+    <End Role="likes_art" Type="Self.likes_art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_art">
+        <PropertyRef Name="art_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_ans__collect__66603565">
+    <End Role="Collects" Type="Self.Collects" Multiplicity="1" />
+    <End Role="Col_ans" Type="Self.Col_ans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_ans">
+        <PropertyRef Name="collects_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_art__collect__5AEE82B9">
+    <End Role="Collects" Type="Self.Collects" Multiplicity="1" />
+    <End Role="Col_art" Type="Self.Col_art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_art">
+        <PropertyRef Name="collects_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_news__collec__628FA481">
+    <End Role="Collects" Type="Self.Collects" Multiplicity="1" />
+    <End Role="Col_news" Type="Self.Col_news" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_news">
+        <PropertyRef Name="collects_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_news__news_i__6383C8BA">
+    <End Role="Psy_news" Type="Self.Psy_news" Multiplicity="1" />
+    <End Role="Col_news" Type="Self.Col_news" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Psy_news">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_news">
+        <PropertyRef Name="news_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_sci__collect__5EBF139D">
+    <End Role="Collects" Type="Self.Collects" Multiplicity="1" />
+    <End Role="Col_sci" Type="Self.Col_sci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_sci">
+        <PropertyRef Name="collects_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Col_sci__sci_id__5FB337D6">
+    <End Role="Sci_articles" Type="Self.Sci_articles" Multiplicity="1" />
+    <End Role="Col_sci" Type="Self.Col_sci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sci_articles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Col_sci">
+        <PropertyRef Name="sci_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Collects__users___5812160E">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Collects" Type="Self.Collects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Collects">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_ans__users__75A278F5">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_ans" Type="Self.likes_ans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_ans">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_ans__users__08B54D69">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_ans_comment" Type="Self.likes_ans_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_ans_comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_art__users__6A30C649">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_art" Type="Self.likes_art" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_art">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_art__users__01142BA1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_art_comment" Type="Self.likes_art_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_art_comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_new__news___72C60C4A">
+    <End Role="Psy_news" Type="Self.Psy_news" Multiplicity="1" />
+    <End Role="likes_news" Type="Self.likes_news" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Psy_news">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_news">
+        <PropertyRef Name="news_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_new__users__71D1E811">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_news" Type="Self.likes_news" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_news">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_new__news___7A672E12">
+    <End Role="News_Comment" Type="Self.News_Comment" Multiplicity="1" />
+    <End Role="likes_news_comment" Type="Self.likes_news_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_news_comment">
+        <PropertyRef Name="news_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_new__users__797309D9">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_news_comment" Type="Self.likes_news_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_news_comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_sci__sci_i__6EF57B66">
+    <End Role="Sci_articles" Type="Self.Sci_articles" Multiplicity="1" />
+    <End Role="likes_sci" Type="Self.likes_sci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sci_articles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_sci">
+        <PropertyRef Name="sci_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_sci__users__6E01572D">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_sci" Type="Self.likes_sci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_sci">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_sci__sci_c__7E37BEF6">
+    <End Role="Sci_Comment" Type="Self.Sci_Comment" Multiplicity="1" />
+    <End Role="likes_sci_comment" Type="Self.likes_sci_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sci_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_sci_comment">
+        <PropertyRef Name="sci_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_sci__users__7D439ABD">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_sci_comment" Type="Self.likes_sci_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_sci_comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_vid__users__04E4BC85">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="likes_video_comment" Type="Self.likes_video_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_video_comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__likes_vid__video__05D8E0BE">
+    <End Role="Videos_Comment" Type="Self.Videos_Comment" Multiplicity="1" />
+    <End Role="likes_video_comment" Type="Self.likes_video_comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Videos_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="likes_video_comment">
+        <PropertyRef Name="video_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__News_Comm__artic__4D94879B">
+    <End Role="Psy_news" Type="Self.Psy_news" Multiplicity="1" />
+    <End Role="News_Comment" Type="Self.News_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Psy_news">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News_Comment">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__News_Comm__paren__4E88ABD4">
+    <End Role="News_Comment" Type="Self.News_Comment" Multiplicity="0..1" />
+    <End Role="News_Comment1" Type="Self.News_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News_Comment1">
+        <PropertyRef Name="parent_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__News_Comm__users__4CA06362">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="News_Comment" Type="Self.News_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="News_Comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videos_Co__video__5441852A">
+    <End Role="Psy_videos" Type="Self.Psy_videos" Multiplicity="1" />
+    <End Role="Videos_Comment" Type="Self.Videos_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Psy_videos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Videos_Comment">
+        <PropertyRef Name="videos_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Questions__users__2C3393D0">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sci_Comme__artic__46E78A0C">
+    <End Role="Sci_articles" Type="Self.Sci_articles" Multiplicity="1" />
+    <End Role="Sci_Comment" Type="Self.Sci_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sci_articles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sci_Comment">
+        <PropertyRef Name="article_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sci_Comme__paren__47DBAE45">
+    <End Role="Sci_Comment" Type="Self.Sci_Comment" Multiplicity="0..1" />
+    <End Role="Sci_Comment1" Type="Self.Sci_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sci_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sci_Comment1">
+        <PropertyRef Name="parent_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sci_Comme__users__45F365D3">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Sci_Comment" Type="Self.Sci_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sci_Comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videos_Co__users__534D60F1">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Videos_Comment" Type="Self.Videos_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Videos_Comment">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Videos_Co__paren__5535A963">
+    <End Role="Videos_Comment" Type="Self.Videos_Comment" Multiplicity="0..1" />
+    <End Role="Videos_Comment1" Type="Self.Videos_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Videos_Comment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Videos_Comment1">
+        <PropertyRef Name="parent_comment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LinxinaccessEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answer_Comment" EntityType="Self.Answer_Comment" />
+    <EntitySet Name="Answers" EntityType="Self.Answers" />
+    <EntitySet Name="Art_Comment" EntityType="Self.Art_Comment" />
+    <EntitySet Name="Articles" EntityType="Self.Articles" />
+    <EntitySet Name="Col_ans" EntityType="Self.Col_ans" />
+    <EntitySet Name="Col_art" EntityType="Self.Col_art" />
+    <EntitySet Name="Col_news" EntityType="Self.Col_news" />
+    <EntitySet Name="Col_sci" EntityType="Self.Col_sci" />
+    <EntitySet Name="Collects" EntityType="Self.Collects" />
+    <EntitySet Name="likes_ans" EntityType="Self.likes_ans" />
+    <EntitySet Name="likes_ans_comment" EntityType="Self.likes_ans_comment" />
+    <EntitySet Name="likes_art" EntityType="Self.likes_art" />
+    <EntitySet Name="likes_art_comment" EntityType="Self.likes_art_comment" />
+    <EntitySet Name="likes_news" EntityType="Self.likes_news" />
+    <EntitySet Name="likes_news_comment" EntityType="Self.likes_news_comment" />
+    <EntitySet Name="likes_sci" EntityType="Self.likes_sci" />
+    <EntitySet Name="likes_sci_comment" EntityType="Self.likes_sci_comment" />
+    <EntitySet Name="likes_video_comment" EntityType="Self.likes_video_comment" />
+    <EntitySet Name="News_Comment" EntityType="Self.News_Comment" />
+    <EntitySet Name="Psy_news" EntityType="Self.Psy_news" />
+    <EntitySet Name="Psy_videos" EntityType="Self.Psy_videos" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" />
+    <EntitySet Name="Sci_articles" EntityType="Self.Sci_articles" />
+    <EntitySet Name="Sci_Comment" EntityType="Self.Sci_Comment" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Videos_Comment" EntityType="Self.Videos_Comment" />
+    <AssociationSet Name="FK__Answer_Co__answe__398D8EEE" Association="Self.FK__Answer_Co__answe__398D8EEE">
+      <End Role="Answers" EntitySet="Answers" />
+      <End Role="Answer_Comment" EntitySet="Answer_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Answer_Co__paren__3A81B327" Association="Self.FK__Answer_Co__paren__3A81B327">
+      <End Role="Answer_Comment" EntitySet="Answer_Comment" />
+      <End Role="Answer_Comment1" EntitySet="Answer_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Answer_Co__users__38996AB5" Association="Self.FK__Answer_Co__users__38996AB5">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Answer_Comment" EntitySet="Answer_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_ans__ans_c__09A971A2" Association="Self.FK__likes_ans__ans_c__09A971A2">
+      <End Role="Answer_Comment" EntitySet="Answer_Comment" />
+      <End Role="likes_ans_comment" EntitySet="likes_ans_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Answers__questio__33D4B598" Association="Self.FK__Answers__questio__33D4B598">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Answers__users_i__32E0915F" Association="Self.FK__Answers__users_i__32E0915F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_ans__ans_id__6754599E" Association="Self.FK__Col_ans__ans_id__6754599E">
+      <End Role="Answers" EntitySet="Answers" />
+      <End Role="Col_ans" EntitySet="Col_ans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_ans__ans_i__76969D2E" Association="Self.FK__likes_ans__ans_i__76969D2E">
+      <End Role="Answers" EntitySet="Answers" />
+      <End Role="likes_ans" EntitySet="likes_ans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Art_Comme__artic__403A8C7D" Association="Self.FK__Art_Comme__artic__403A8C7D">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Art_Comment" EntitySet="Art_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Art_Comme__paren__412EB0B6" Association="Self.FK__Art_Comme__paren__412EB0B6">
+      <End Role="Art_Comment" EntitySet="Art_Comment" />
+      <End Role="Art_Comment1" EntitySet="Art_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Art_Comme__users__3F466844" Association="Self.FK__Art_Comme__users__3F466844">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Art_Comment" EntitySet="Art_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_art__art_c__02084FDA" Association="Self.FK__likes_art__art_c__02084FDA">
+      <End Role="Art_Comment" EntitySet="Art_Comment" />
+      <End Role="likes_art_comment" EntitySet="likes_art_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__users___182C9B23" Association="Self.FK__Articles__users___182C9B23">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_art__art_id__5BE2A6F2" Association="Self.FK__Col_art__art_id__5BE2A6F2">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Col_art" EntitySet="Col_art" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_art__art_i__6B24EA82" Association="Self.FK__likes_art__art_i__6B24EA82">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="likes_art" EntitySet="likes_art" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_ans__collect__66603565" Association="Self.FK__Col_ans__collect__66603565">
+      <End Role="Collects" EntitySet="Collects" />
+      <End Role="Col_ans" EntitySet="Col_ans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_art__collect__5AEE82B9" Association="Self.FK__Col_art__collect__5AEE82B9">
+      <End Role="Collects" EntitySet="Collects" />
+      <End Role="Col_art" EntitySet="Col_art" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_news__collec__628FA481" Association="Self.FK__Col_news__collec__628FA481">
+      <End Role="Collects" EntitySet="Collects" />
+      <End Role="Col_news" EntitySet="Col_news" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_news__news_i__6383C8BA" Association="Self.FK__Col_news__news_i__6383C8BA">
+      <End Role="Psy_news" EntitySet="Psy_news" />
+      <End Role="Col_news" EntitySet="Col_news" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_sci__collect__5EBF139D" Association="Self.FK__Col_sci__collect__5EBF139D">
+      <End Role="Collects" EntitySet="Collects" />
+      <End Role="Col_sci" EntitySet="Col_sci" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Col_sci__sci_id__5FB337D6" Association="Self.FK__Col_sci__sci_id__5FB337D6">
+      <End Role="Sci_articles" EntitySet="Sci_articles" />
+      <End Role="Col_sci" EntitySet="Col_sci" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Collects__users___5812160E" Association="Self.FK__Collects__users___5812160E">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Collects" EntitySet="Collects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_ans__users__75A278F5" Association="Self.FK__likes_ans__users__75A278F5">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_ans" EntitySet="likes_ans" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_ans__users__08B54D69" Association="Self.FK__likes_ans__users__08B54D69">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_ans_comment" EntitySet="likes_ans_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_art__users__6A30C649" Association="Self.FK__likes_art__users__6A30C649">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_art" EntitySet="likes_art" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_art__users__01142BA1" Association="Self.FK__likes_art__users__01142BA1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_art_comment" EntitySet="likes_art_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_new__news___72C60C4A" Association="Self.FK__likes_new__news___72C60C4A">
+      <End Role="Psy_news" EntitySet="Psy_news" />
+      <End Role="likes_news" EntitySet="likes_news" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_new__users__71D1E811" Association="Self.FK__likes_new__users__71D1E811">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_news" EntitySet="likes_news" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_new__news___7A672E12" Association="Self.FK__likes_new__news___7A672E12">
+      <End Role="News_Comment" EntitySet="News_Comment" />
+      <End Role="likes_news_comment" EntitySet="likes_news_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_new__users__797309D9" Association="Self.FK__likes_new__users__797309D9">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_news_comment" EntitySet="likes_news_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_sci__sci_i__6EF57B66" Association="Self.FK__likes_sci__sci_i__6EF57B66">
+      <End Role="Sci_articles" EntitySet="Sci_articles" />
+      <End Role="likes_sci" EntitySet="likes_sci" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_sci__users__6E01572D" Association="Self.FK__likes_sci__users__6E01572D">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_sci" EntitySet="likes_sci" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_sci__sci_c__7E37BEF6" Association="Self.FK__likes_sci__sci_c__7E37BEF6">
+      <End Role="Sci_Comment" EntitySet="Sci_Comment" />
+      <End Role="likes_sci_comment" EntitySet="likes_sci_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_sci__users__7D439ABD" Association="Self.FK__likes_sci__users__7D439ABD">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_sci_comment" EntitySet="likes_sci_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_vid__users__04E4BC85" Association="Self.FK__likes_vid__users__04E4BC85">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="likes_video_comment" EntitySet="likes_video_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__likes_vid__video__05D8E0BE" Association="Self.FK__likes_vid__video__05D8E0BE">
+      <End Role="Videos_Comment" EntitySet="Videos_Comment" />
+      <End Role="likes_video_comment" EntitySet="likes_video_comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__News_Comm__artic__4D94879B" Association="Self.FK__News_Comm__artic__4D94879B">
+      <End Role="Psy_news" EntitySet="Psy_news" />
+      <End Role="News_Comment" EntitySet="News_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__News_Comm__paren__4E88ABD4" Association="Self.FK__News_Comm__paren__4E88ABD4">
+      <End Role="News_Comment" EntitySet="News_Comment" />
+      <End Role="News_Comment1" EntitySet="News_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__News_Comm__users__4CA06362" Association="Self.FK__News_Comm__users__4CA06362">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="News_Comment" EntitySet="News_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videos_Co__video__5441852A" Association="Self.FK__Videos_Co__video__5441852A">
+      <End Role="Psy_videos" EntitySet="Psy_videos" />
+      <End Role="Videos_Comment" EntitySet="Videos_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Questions__users__2C3393D0" Association="Self.FK__Questions__users__2C3393D0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sci_Comme__artic__46E78A0C" Association="Self.FK__Sci_Comme__artic__46E78A0C">
+      <End Role="Sci_articles" EntitySet="Sci_articles" />
+      <End Role="Sci_Comment" EntitySet="Sci_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sci_Comme__paren__47DBAE45" Association="Self.FK__Sci_Comme__paren__47DBAE45">
+      <End Role="Sci_Comment" EntitySet="Sci_Comment" />
+      <End Role="Sci_Comment1" EntitySet="Sci_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sci_Comme__users__45F365D3" Association="Self.FK__Sci_Comme__users__45F365D3">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sci_Comment" EntitySet="Sci_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videos_Co__users__534D60F1" Association="Self.FK__Videos_Co__users__534D60F1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Videos_Comment" EntitySet="Videos_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Videos_Co__paren__5535A963" Association="Self.FK__Videos_Co__paren__5535A963">
+      <End Role="Videos_Comment" EntitySet="Videos_Comment" />
+      <End Role="Videos_Comment1" EntitySet="Videos_Comment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

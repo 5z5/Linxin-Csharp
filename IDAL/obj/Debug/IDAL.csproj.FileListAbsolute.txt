@@ -1,0 +1,13 @@
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\IDAL.dll
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\IDAL.pdb
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\Model.dll
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\EntityFramework.dll
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\Model.pdb
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\Model.dll.config
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\EntityFramework.xml
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\obj\Debug\IDAL.csprojAssemblyReference.cache
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\obj\Debug\IDAL.csproj.CoreCompileInputs.cache
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\obj\Debug\IDAL.csproj.CopyComplete
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\obj\Debug\IDAL.dll
+C:\Users\13755\Desktop\临心网\Linxin\IDAL\obj\Debug\IDAL.pdb

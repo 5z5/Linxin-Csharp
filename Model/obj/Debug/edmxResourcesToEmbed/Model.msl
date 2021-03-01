@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LinxinaccessModelStoreContainer" CdmEntityContainer="LinxinaccessEntities">
+    <EntitySetMapping Name="Answer_Comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Answer_Comment">
+        <MappingFragment StoreEntitySet="Answer_Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="answer_id" ColumnName="answer_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="parent_comment_id" ColumnName="parent_comment_id" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Answers">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="question_id" ColumnName="question_id" />
+          <ScalarProperty Name="answer_content" ColumnName="answer_content" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Art_Comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Art_Comment">
+        <MappingFragment StoreEntitySet="Art_Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="article_id" ColumnName="article_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="parent_comment_id" ColumnName="parent_comment_id" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Articles">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="like_num" ColumnName="like_num" />
+          <ScalarProperty Name="comment_num" ColumnName="comment_num" />
+          <ScalarProperty Name="views_num" ColumnName="views_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Col_ans">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Col_ans">
+        <MappingFragment StoreEntitySet="Col_ans">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="collects_id" ColumnName="collects_id" />
+          <ScalarProperty Name="ans_id" ColumnName="ans_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Col_art">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Col_art">
+        <MappingFragment StoreEntitySet="Col_art">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="collects_id" ColumnName="collects_id" />
+          <ScalarProperty Name="art_id" ColumnName="art_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Col_news">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Col_news">
+        <MappingFragment StoreEntitySet="Col_news">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="collects_id" ColumnName="collects_id" />
+          <ScalarProperty Name="news_id" ColumnName="news_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Col_sci">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Col_sci">
+        <MappingFragment StoreEntitySet="Col_sci">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="collects_id" ColumnName="collects_id" />
+          <ScalarProperty Name="sci_id" ColumnName="sci_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collects">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Collects">
+        <MappingFragment StoreEntitySet="Collects">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="col_name" ColumnName="col_name" />
+          <ScalarProperty Name="introduces" ColumnName="introduces" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_ans">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_ans">
+        <MappingFragment StoreEntitySet="likes_ans">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="ans_id" ColumnName="ans_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_ans_comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_ans_comment">
+        <MappingFragment StoreEntitySet="likes_ans_comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="ans_comment_id" ColumnName="ans_comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_art">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_art">
+        <MappingFragment StoreEntitySet="likes_art">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="art_id" ColumnName="art_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_art_comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_art_comment">
+        <MappingFragment StoreEntitySet="likes_art_comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="art_comment_id" ColumnName="art_comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_news">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_news">
+        <MappingFragment StoreEntitySet="likes_news">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="news_id" ColumnName="news_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_news_comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_news_comment">
+        <MappingFragment StoreEntitySet="likes_news_comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="news_comment_id" ColumnName="news_comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_sci">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_sci">
+        <MappingFragment StoreEntitySet="likes_sci">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="sci_id" ColumnName="sci_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_sci_comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_sci_comment">
+        <MappingFragment StoreEntitySet="likes_sci_comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="sci_comment_id" ColumnName="sci_comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes_video_comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.likes_video_comment">
+        <MappingFragment StoreEntitySet="likes_video_comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="video_comment_id" ColumnName="video_comment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News_Comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.News_Comment">
+        <MappingFragment StoreEntitySet="News_Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="article_id" ColumnName="article_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="parent_comment_id" ColumnName="parent_comment_id" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Psy_news">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Psy_news">
+        <MappingFragment StoreEntitySet="Psy_news">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="origin" ColumnName="origin" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="comment_num" ColumnName="comment_num" />
+          <ScalarProperty Name="views_num" ColumnName="views_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Psy_videos">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Psy_videos">
+        <MappingFragment StoreEntitySet="Psy_videos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="comment_num" ColumnName="comment_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Questions">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="quesition_content" ColumnName="quesition_content" />
+          <ScalarProperty Name="question_detail" ColumnName="question_detail" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sci_articles">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Sci_articles">
+        <MappingFragment StoreEntitySet="Sci_articles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="origin" ColumnName="origin" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="comment_num" ColumnName="comment_num" />
+          <ScalarProperty Name="views_num" ColumnName="views_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sci_Comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Sci_Comment">
+        <MappingFragment StoreEntitySet="Sci_Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="article_id" ColumnName="article_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="parent_comment_id" ColumnName="parent_comment_id" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="tel_phone" ColumnName="tel_phone" />
+          <ScalarProperty Name="head_img" ColumnName="head_img" />
+          <ScalarProperty Name="introduce" ColumnName="introduce" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos_Comment">
+      <EntityTypeMapping TypeName="LinxinaccessModel.Videos_Comment">
+        <MappingFragment StoreEntitySet="Videos_Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="videos_id" ColumnName="videos_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="parent_comment_id" ColumnName="parent_comment_id" />
+          <ScalarProperty Name="likes_num" ColumnName="likes_num" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

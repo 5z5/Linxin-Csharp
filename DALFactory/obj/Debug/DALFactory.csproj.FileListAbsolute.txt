@@ -1,0 +1,15 @@
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\DALFactory.dll
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\DALFactory.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\obj\Debug\DALFactory.csproj.CoreCompileInputs.cache
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\obj\Debug\DALFactory.dll
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\obj\Debug\DALFactory.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\IDAL.dll
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\Model.dll
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\EntityFramework.dll
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\IDAL.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\Model.pdb
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\Model.dll.config
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\EntityFramework.xml
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\obj\Debug\DALFactory.csprojAssemblyReference.cache
+C:\Users\13755\Desktop\临心网\Linxin\DALFactory\obj\Debug\DALFactory.csproj.CopyComplete

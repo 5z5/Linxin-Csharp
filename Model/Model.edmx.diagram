@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="560193aa9bde4d4e97140dbc14d10b62" Name="Diagram1">
+        <EntityTypeShape EntityType="LinxinaccessModel.Answer_Comment" Width="1.5" PointX="3" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Answers" Width="1.5" PointX="5.25" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Art_Comment" Width="1.5" PointX="5.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Articles" Width="1.5" PointX="3" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Col_ans" Width="1.5" PointX="7.5" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Col_art" Width="1.5" PointX="5.25" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Col_news" Width="1.5" PointX="8.25" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Col_sci" Width="1.5" PointX="8.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Collects" Width="1.5" PointX="3" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_ans" Width="1.5" PointX="10.5" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_ans_comment" Width="1.5" PointX="11.25" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_art" Width="1.5" PointX="8.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_art_comment" Width="1.5" PointX="10.5" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_news" Width="1.5" PointX="6" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_news_comment" Width="1.5" PointX="6" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_sci" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_sci_comment" Width="1.5" PointX="3" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.likes_video_comment" Width="1.5" PointX="9" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.News_Comment" Width="1.5" PointX="9" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Psy_news" Width="1.5" PointX="6.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Psy_videos" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Questions" Width="1.5" PointX="3" PointY="60.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Sci_articles" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Sci_Comment" Width="1.5" PointX="6" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Users" Width="1.5" PointX="0.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinxinaccessModel.Videos_Comment" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Answer_Co__answe__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Answer_Co__paren__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Answer_Co__users__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_ans__ans_c__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Answers__questio__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Answers__users_i__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_ans__ans_id__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_ans__ans_i__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Art_Comme__artic__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Art_Comme__paren__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Art_Comme__users__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_art__art_c__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Articles__users___182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_art__art_id__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_art__art_i__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_ans__collect__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_art__collect__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_news__collec__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_news__news_i__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_sci__collect__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Col_sci__sci_id__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Collects__users___5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_ans__users__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_ans__users__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_art__users__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_art__users__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_new__news___72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_new__users__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_new__news___7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_new__users__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_sci__sci_i__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_sci__users__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_sci__sci_c__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_sci__users__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_vid__users__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__likes_vid__video__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__News_Comm__artic__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__News_Comm__paren__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__News_Comm__users__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Videos_Co__video__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Questions__users__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Sci_Comme__artic__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Sci_Comme__paren__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Sci_Comme__users__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Videos_Co__users__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="LinxinaccessModel.FK__Videos_Co__paren__5535A963" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
